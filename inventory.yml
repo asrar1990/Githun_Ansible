@@ -1,0 +1,4 @@
+all:
+  hosts:
+    ec2-54-242-2-221.compute-1.amazonaws.com:
+      ansible_user: ubuntu
