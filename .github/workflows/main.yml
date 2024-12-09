@@ -23,6 +23,15 @@ jobs:
           sudo apt update
           sudo apt install -y maven
           mvn clean install
+      - name: Install Tomcat
+        run: |
+          sudo apt update
+          wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.72/bin/apache-tomcat-9.0.72.tar.gz -O /tmp/tomcat.tar.gz
+          sudo mkdir -p /opt/tomcat
+          sudo tar -xvzf /tmp/tomcat.tar.gz -C /opt/tomcat --strip-components=1
+          sudo chmod -R 755 /opt/tomcat
+          sudo sh /opt/tomcat/bin/startup.sh
+          echo "Tomcat successfully installed and started."
 
   deploy:
     name: Deploy with Ansible
