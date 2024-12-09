@@ -1,4 +1,6 @@
 all:
   hosts:
-    ec2-54-242-2-221.compute-1.amazonaws.com:
+    target-server:
+      ansible_host: ec2-54-242-2-221.compute-1.amazonaws.com
       ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/id_rsa
