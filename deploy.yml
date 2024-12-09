@@ -1,0 +1,13 @@
+---
+- name: Deploy Application
+  hosts: all
+  tasks:
+    - name: Copy WAR file to server
+      copy:
+        src: target/MyApp.war
+        dest: /opt/tomcat/webapps/MyApp.war
+
+    - name: Restart Application
+      service:
+        name: tomcat
+        state: restarted
